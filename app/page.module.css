@@ -1,0 +1,307 @@
+/* 全体のレイアウト */
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #b9105f, #0ec8e1);
+  color: #18e311;
+  font-family: "Segoe UI", sans-serif;
+  flex-wrap: wrap;
+}
+
+/* メニューリストとカートの共通スタイル */
+.menuList,
+.cart {
+  flex: 1;
+  background: #6608dadd;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* メニューは少し広く */
+.menuList {
+  flex: 2;
+}
+
+/* タイトル */
+.title {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #000;
+  color: #6ec769;
+  font-weight: 600;
+  font-size: 0.8rem;
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+/* メニューリスト */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.item {
+  background: #1f114a;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #ffffff;
+}
+
+/* メニュー画像 (統一サイズ) */
+.menuImage {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.menuImage:hover {
+  transform: scale(1.05);
+}
+
+/* 商品名 */
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #ffffff;
+}
+
+/* 商品コメント */
+.comment {
+  font-size: 1rem;
+  color: #dcdcdc;
+  margin-bottom: 0.5rem;
+}
+
+/* ボタン */
+.addButton,
+.confirmButton,
+.paymentButton {
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  margin-top: 0.3rem;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #1b0fce;
+  transition: background-color 0.3s;
+}
+
+.addButton {
+  background-color: #ffa000;
+}
+
+.addButton:hover {
+  background-color: #ffb300;
+}
+
+.confirmButton {
+  background-color: #43a047;
+}
+
+.confirmButton:hover {
+  background-color: #66bb6a;
+}
+
+.paymentButton {
+  background-color: #e53935;
+  margin-top: 1rem;
+}
+
+.paymentButton:hover {
+  background-color: #d32f2f;
+}
+
+/* 注文確認リンク */
+.checkoutLink {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #3949ab;
+  color: #19b736;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.checkoutLink:hover {
+  background-color: #5c6bc0;
+}
+
+/* カート */
+.cartTitle {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #14c377;
+}
+
+.empty {
+  font-style: italic;
+  color: #b0a9c5;
+  text-align: center;
+}
+
+/* カート内の商品アイテム */
+.cartItem {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  background: #3a2c63;
+  padding: 0.6rem;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px #292050;
+  color: #e0e0e0;
+}
+
+/* カート内の画像 (小さめ) */
+.cartImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* カート内の商品名 */
+.cartName {
+  font-size: 1rem;
+  margin: 0.2rem 0;
+  flex-grow: 1;
+}
+
+/* 仕切り線 */
+.separator {
+  border: 0.5px solid #ccc;
+  margin: 0.8rem 0;
+}
+
+/* 合計金額 */
+.totalPrice {
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  text-align: right;
+  color: #ffffff;
+}
+
+/* 支払い後のありがとうメッセージ */
+.thankYou {
+  color: #2e7d32;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  white-space: pre-line;
+  text-align: center;
+  background-color: #e0f2f1;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
+  animation: popin 0.5s ease-in-out;
+}
+
+/* ポップインアニメーション */
+@keyframes popin {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .menuList,
+  .cart {
+    width: 100%;
+    flex: unset;
+    margin-bottom: 1.5rem;
+  }
+
+  .checkoutLink {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cartItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cartImage {
+    margin-bottom: 0.5rem;
+  }
+
+  .menuImage {
+    width: 100%;
+    height: auto;
+  }
+}
+.socialButtons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.socialIcon {
+  background-color: #333;
+  color: white;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.socialIcon:hover {
+  background-color: #0070f3;
+}
+.navButton {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.navButton:hover {
+  background-color: #f0f0f0;
+}

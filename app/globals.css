@@ -1,0 +1,76 @@
+/* 全体の背景色を設定 */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(1, 11, 15, 0.753); /* 💡 ここでページ全体の背景色を変えます */
+  color: #ffffff;
+}
+
+/* main 要素の背景色を透明にする（白をなくす） */
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  background-color: transparent; /* ✅ 白背景をなくします */
+  border-radius: 8px;
+}
+
+/* リスト */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #1f8b26;
+}
+
+/* タイトル */
+h1, h2 {
+  text-align: center;
+  color: #ffffff;
+}
+
+/* ボタン */
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+/* 画像 */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* モバイル対応 */
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  input[type="number"] {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
