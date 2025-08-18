@@ -42,7 +42,7 @@ export default function MenuPage() {
         const data = await res.json();
         setMenu(data.contents);
       } catch (error) {
-        console.error("エラー:", error);
+        console.error("Error fetching menu:", error);
       }
     };
 
@@ -52,9 +52,7 @@ export default function MenuPage() {
     if (savedCart) {
       try {
         setCart(JSON.parse(savedCart));
-      } catch {
-        // ignore parse error
-      }
+      } catch {}
     }
 
     const orderFlag = localStorage.getItem("orderComplete");
