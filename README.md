@@ -1,3 +1,83 @@
+# Order App - Best Nepali Food 🍛
+
+A Next.js application for ordering Nepali food with cart functionality and MicroCMS integration.
+
+## Features
+
+- Menu display with images from MicroCMS
+- Shopping cart functionality
+- Order confirmation
+- Responsive design
+
+## Environment Variables
+
+Before deploying or running locally, you need to set up your environment variables:
+
+1. Copy `.env.local.example` to `.env.local`
+2. Add your MicroCMS API key:
+   ```
+   NEXT_PUBLIC_MICROCMS_API_KEY=your_actual_api_key
+   ```
+
+## Getting Started
+
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Deploy to Vercel
+
+### Option 1: Deploy via Vercel CLI
+
+1. Install Vercel CLI:
+
+   ```bash
+   npm install -g vercel
+   ```
+
+2. Login to Vercel:
+
+   ```bash
+   vercel login
+   ```
+
+3. Deploy:
+
+   ```bash
+   vercel
+   ```
+
+4. Add your environment variable in Vercel Dashboard:
+   - Go to your project settings
+   - Navigate to "Environment Variables"
+   - Add `NEXT_PUBLIC_MICROCMS_API_KEY` with your API key
+
+### Option 2: Deploy via Vercel Dashboard
+
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Click "New Project"
+4. Import your GitHub repository
+5. Add environment variable `NEXT_PUBLIC_MICROCMS_API_KEY` in the project settings
+6. Click "Deploy"
+
+## Important Notes
+
+- Make sure your `.env.local` file is NOT committed to Git (it's in `.gitignore`)
+- Always add environment variables in Vercel project settings before deploying
+- The build command is `npm run build`
+- The project uses Next.js 14.2.3
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

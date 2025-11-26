@@ -25,6 +25,7 @@ type CartItem = MenuItem & { quantity: number };
 export default function MenuPage() {
   const [menu, setMenu] = useState<MenuItem[]>([]);
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [orderComplete, setOrderComplete] = useState(false);
   const [paidAmount, setPaidAmount] = useState(0);
   const [isPaying, setIsPaying] = useState(false);
@@ -40,9 +41,13 @@ export default function MenuPage() {
         });
         if (!res.ok) throw new Error("Failed to fetch menu");
         const data = await res.json();
-        setMenu(data.contents);
+        setMenu(data.contents ?? []);
+        setLoadError(null);
       } catch (error) {
         console.error("Error fetching menu:", error);
+        setLoadError(
+          "メニューの取得に失敗しました。Vercelの環境変数 NEXT_PUBLIC_MICROCMS_API_KEY を確認してください。"
+        );
       }
     };
 
@@ -127,6 +132,19 @@ export default function MenuPage() {
   return (
     <div className={styles.container}>
       <main className={styles.menuList}>
+        {loadError && (
+          <div
+            style={{
+              background: "#ffecec",
+              color: "#a30000",
+              padding: "8px 12px",
+              borderRadius: 6,
+              marginBottom: 12,
+            }}
+          >
+            {loadError}
+          </div>
+        )}
         <div
           style={{
             display: "flex",
@@ -155,7 +173,7 @@ export default function MenuPage() {
         <ul className={styles.list}>
           {menu.map((item) => (
             <li key={item.id} className={styles.item}>
-              {item.image && (
+              {item.image ? (
                 <Image
                   src={item.image.url}
                   alt={item.name}
@@ -163,6 +181,22 @@ export default function MenuPage() {
                   height={item.image.height}
                   className={styles.menuImage}
                 />
+              ) : (
+                <div
+                  style={{
+                    width: 180,
+                    height: 120,
+                    background: "#f2f2f2",
+                    borderRadius: 8,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#666",
+                    fontSize: 12,
+                  }}
+                >
+                  画像がありません
+                </div>
               )}
               <p className={styles.name}>
                 {item.name} — {item.price}円
