@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { FaFacebook, FaInstagram, FaEnvelope } from "react-icons/fa";
 import styles from "./page.module.css";
 
-const MENU_API_URL = "https://2uo0wskuv5.microcms.io/api/v1/menu";
+const MENU_API_URL = "/api/menu";
 
 type MenuItem = {
   id: string;
@@ -34,11 +34,7 @@ export default function MenuPage() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const res = await fetch(MENU_API_URL, {
-          headers: {
-            "X-API-KEY": process.env.NEXT_PUBLIC_MICROCMS_API_KEY || "",
-          },
-        });
+        const res = await fetch(MENU_API_URL, { cache: "no-store" });
         if (!res.ok) throw new Error("Failed to fetch menu");
         const data = await res.json();
         setMenu(data.contents ?? []);
@@ -46,7 +42,7 @@ export default function MenuPage() {
       } catch (error) {
         console.error("Error fetching menu:", error);
         setLoadError(
-          "メニューの取得に失敗しました。Vercelの環境変数 NEXT_PUBLIC_MICROCMS_API_KEY を確認してください。"
+          "メニューの取得に失敗しました。Vercel の環境変数 MICROCMS_API_KEY を設定してください。"
         );
       }
     };

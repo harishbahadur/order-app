@@ -11,12 +11,12 @@ A Next.js application for ordering Nepali food with cart functionality and Micro
 
 ## Environment Variables
 
-Before deploying or running locally, you need to set up your environment variables:
+Before deploying or running locally, set up your environment variables:
 
 1. Copy `.env.local.example` to `.env.local`
-2. Add your MicroCMS API key:
+2. Add your MicroCMS API key (server-side):
    ```
-   NEXT_PUBLIC_MICROCMS_API_KEY=your_actual_api_key
+   MICROCMS_API_KEY=your_actual_api_key
    ```
 
 ## Getting Started
@@ -57,10 +57,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
    vercel
    ```
 
-4. Add your environment variable in Vercel Dashboard:
-   - Go to your project settings
-   - Navigate to "Environment Variables"
-   - Add `NEXT_PUBLIC_MICROCMS_API_KEY` with your API key
+4. Add an environment variable in Vercel Dashboard:
+   - Project Settings → Environment Variables
+   - Add `MICROCMS_API_KEY` with your API key (Production and Preview)
 
 ### Option 2: Deploy via Vercel Dashboard
 
