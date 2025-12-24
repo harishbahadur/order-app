@@ -37,6 +37,7 @@ export default function MenuPage() {
         const res = await fetch(MENU_API_URL, { cache: "no-store" });
         if (!res.ok) throw new Error("Failed to fetch menu");
         const data = await res.json();
+        console.log("📊 Menu data received:", data);
         setMenu(data.contents ?? []);
         setLoadError(null);
       } catch (error) {

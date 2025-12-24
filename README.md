@@ -13,11 +13,12 @@ A Next.js application for ordering Nepali food with cart functionality and Micro
 
 Before deploying or running locally, set up your environment variables:
 
-1. Copy `.env.local.example` to `.env.local`
-2. Add your MicroCMS API key (server-side):
+1. Create a `.env.local` file at the project root
+2. Add your MicroCMS API key (server-side only):
    ```
    MICROCMS_API_KEY=your_actual_api_key
    ```
+   This is read by the Next.js API route at `app/api/menu/route.ts`. Do not expose this key as a public env var.
 
 ## Getting Started
 
@@ -37,23 +38,23 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deploy to Vercel
 
-### Option 1: Deploy via Vercel CLI
+### Option 1: Deploy via Vercel CLI (Windows PowerShell)
 
 1. Install Vercel CLI:
 
-   ```bash
+   ```powershell
    npm install -g vercel
    ```
 
 2. Login to Vercel:
 
-   ```bash
+   ```powershell
    vercel login
    ```
 
 3. Deploy:
 
-   ```bash
+   ```powershell
    vercel
    ```
 
@@ -67,7 +68,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 2. Go to [vercel.com](https://vercel.com)
 3. Click "New Project"
 4. Import your GitHub repository
-5. Add environment variable `NEXT_PUBLIC_MICROCMS_API_KEY` in the project settings
+5. Add environment variable `MICROCMS_API_KEY` in the project settings (Production and Preview)
 6. Click "Deploy"
 
 ## Important Notes
